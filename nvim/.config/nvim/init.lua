@@ -16,7 +16,7 @@ vim.opt.swapfile = false
 -- install plugins and options
 require("vim-options")
 require("vim-helpers")
--- require("help-floating")
--- require("floating-term")
+require("help-floating")
+require("floating-term")
 require("lazy").setup("plugins")
 -- require("snipets") -- Luasnip should be installed first, so this file is here
