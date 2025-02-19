@@ -15,7 +15,7 @@ vim.opt.swapfile = false
 
 -- install plugins and options
 require("vim-options")
--- require("vim-helpers")
+require("vim-helpers")
 -- require("help-floating")
 -- require("floating-term")
 require("lazy").setup("plugins")
