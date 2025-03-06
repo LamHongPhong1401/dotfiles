@@ -1,4 +1,9 @@
 # Initialization code that may require console input (password prompts, [y/n]
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+# set SHELL variable
+export SHELL=$(which zsh)
+
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -70,10 +75,10 @@ alias gr=./gradlew
 alias stm='tmux source-file ~/.tmux.conf \;'
 # confirm before remove something... fk.
 alias rm="rm -i"
+
 # PATH
 export PATH="/opt/homebrew/share/android-commandlinetools/cmdline-tools/latest/bin:$PATH"
-#export JAVA_HOME=$(/usr/libexec/java_home -v 23)
-#export PATH=$JAVA_HOME/bin:$PATH
+
 alias vcf="cd ~/.config/nvim && nvim"
 alias python=python3
 alias dc=docker-compose
@@ -85,7 +90,14 @@ gpup() {
   branch=$(git rev-parse --abbrev-ref HEAD)
   git push --set-upstream origin "$branch"
 }
-# set SHELL variable
-export SHELL=$(which zsh)
+
+# set up ENV Openjdk
+export JAVA_HOME="$(brew --prefix openjdk)"
+export PATH="$JAVA_HOME/bin:$PATH"
+
+# set up ENV for Node
+export NODE_HOME="$(brew --prefix node)"
+export PATH="$NODE_HOME/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
+
